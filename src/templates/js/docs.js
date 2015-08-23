@@ -29,10 +29,16 @@ docsApp.directive.ngHtmlWrapLoaded = function(reindentCode, templateMerge, loade
             module: '',
             body: element.text()
           },
-        html = "<!doctype html>\n<html ng-app{{module}}>\n  <head>\n{{head:4}}  </head>\n  <body>\n{{body:4}}  </body>\n</html>";
+        html = "<!doctype html>\n<html ng-app{{module}}>\n  <head>\n{{head:4}}  </head>\n  <body>\n{{body:4}}  </body>\n</html>",
+        cssFilePathRegex = /\.css$/; // any string that ends in '.css'
 
       angular.forEach(loadedUrls.base, function(dep) {
-        properties.head += '<script src="' + dep + '"></script>\n';
+        // if the file is css, make sure we link it that way!
+        if (cssFilePathRegex.test(dep)) {
+          properties.head += '<link rel="stylesheet" href="' + dep + '" type="text/css">\n';
+        } else {
+          properties.head += '<script src="' + dep + '"></script>\n';
+        }
       });
 
       angular.forEach((attr.ngHtmlWrapLoaded || '').split(' '), function(dep) {
