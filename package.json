@@ -1,11 +1,11 @@
 {
   "name": "grunt-ngdocs",
-  "version": "0.2.7-custom4",
+  "version": "0.3.0-custom",
   "description": "grunt plugin for angularjs documentation",
   "main": "tasks",
   "repository": {
     "type": "git",
-    "url": "https://github.com/c0bra/grunt-ngdocs.git"
+    "url": "https://github.com/mportugal/grunt-ngdocs.git"
   },
   "keywords": [
     "gruntplugin",
