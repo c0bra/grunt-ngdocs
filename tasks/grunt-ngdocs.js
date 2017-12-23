@@ -30,7 +30,7 @@ module.exports = function(grunt) {
         done = this.async(),
         options = this.options({
           dest: 'docs/',
-          testingUrlPrefix: '/index.html#',
+          testingUrlPrefix: '/index.html#!',
           scenarioDest: '.tmp/doc-scenarios/',
           startPage: '/api',
           scripts: ['angular.js'],
