@@ -189,6 +189,8 @@ Doc.prototype = {
     }
 
     function extractInlineDocCode(text, tag) {
+      var regex;
+
       if(tag == 'all') {
         //use a greedy operator to match the last </docs> tag
         regex = /\/\/<docs.*?>([.\s\S]+)\/\/<\/docs>/im;
@@ -229,7 +231,7 @@ Doc.prototype = {
               }
             }
             return '';
-          })
+          });
           return placeholder(example.toHtml());
         }).
         replace(/(?:\*\s+)?<file.+?src="([^"]+)"(?:\s+tag="([^"]+)")?\s*\/?>/i, function(_, file, tag) {
